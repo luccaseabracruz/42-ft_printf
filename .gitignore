@@ -1,0 +1,14 @@
+#Visual Studio 
+.vscode
+
+#Build directory and Object Files
+build/
+*.o
+.bonus
+
+#Executables
+*.out
+
+#Static Library Files
+libftprintf.a
+libft.a
