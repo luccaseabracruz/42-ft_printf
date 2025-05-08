@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:08:43 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/08 15:25:58 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:29:21 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 int	ft_printf_bonus(const char *format, ...)
 {
 	va_list	args;
+	t_flags	flags;
 	int		i;
-	int		s_counter;
+	int		counter;
 
 	va_start(args, format);
 	i = 0;
-	s_counter = 0;
+	counter = 0;
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1) != '\0')
+			flags = ft_parse(++format);
+		if(flags.specifier)
 		{
-			s_counter++;
-			format++; 
+			//printspecifier
 		}
-		i += write(1, format++, 1);
+		else
+			counter++;
 	}
-	write(1, "\n", 1);
-	ft_putnbr_fd(s_counter, 1);
 	va_end(args);
 	return (i);
 }
