@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:23:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 17:50:54 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/09 20:19:25 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src_bonus/libftprintf_bonus.h"
+#include "../src_bonus/libftprintf_bonus.h"
 #include <stdio.h>
 
-void	test_nospecifiers(void);
-void	test_c(void);
+static void	test_nospecifiers(void);
+static void	test_c(void);
 
 #define TEST_PRINTF(format, ...) { \
     int original_ret = printf(format, ##__VA_ARGS__); \
@@ -28,13 +28,13 @@ void	test_c(void);
 
 int	main(void)
 {
-	// test_nospecifiers();
-	// test_c();
+	test_nospecifiers();
+	test_c();
 	return (0);
 }
 
 // NO SPECIFIERS TEST
-void	test_nospecifiers(void)
+static void	test_nospecifiers(void)
 {
 	int	original_ret;
 	int	ft_ret;
@@ -58,7 +58,7 @@ void	test_nospecifiers(void)
 }
 
 //CHAR TESTS (c)
-void	test_c(void)
+static void	test_c(void)
 {
 	int	original_ret;
 	int	ft_ret;

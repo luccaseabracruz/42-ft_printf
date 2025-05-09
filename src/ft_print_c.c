@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_c_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_print_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 18:46:20 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:50:35 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/09 18:26:01 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/09 19:54:09 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf.h"
 
-int	ft_print_c_bonus(t_flags flags, int arg)
+int	ft_print_c(va_list args)
 {
+	int	ch;
 	int	counter;
 
-	counter = 1;
-	if (flags.width && !flags.minus)
-	{
-		counter += ft_putwidth(flags.width, ' ');
-	}
-	if (ft_isprint(arg))
-	{
-		write(1, &arg, 1);
-	}
-	if (flags.width && flags.minus)
-	{
-		counter += ft_putwidth(flags.width, ' ');
-	}
+	ch = va_arg(args, int);
+	counter = 0;
+	counter += write(1, &ch, 1);
 	return (counter);
 }

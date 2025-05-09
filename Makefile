@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 13:01:08 by lseabra-          #+#    #+#              #
-#    Updated: 2025/05/09 18:21:37 by lseabra-         ###   ########.fr        #
+#    Updated: 2025/05/09 20:43:58 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ BUILD_PATH = build
 LIBFT_PATH = libft/
 LIBFT_ARCH = $(LIBFT_PATH)$(LIBFT_NAME)
 
-SRCS = $(addprefix $(SRC_PATH)/, ft_printf.c)
+SRCS = $(addprefix $(SRC_PATH)/, ft_printf.c ft_print_c.c)
 OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
 
 SRC_BONUS_PATH = src_bonus
@@ -43,8 +43,11 @@ OBJS_BONUS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 all: $(NAME)
 
-$(NAME): $(LIBFT_ARCH) $(BUILD_PATH) $(OBJS_BONUS)
-	$(AR) $(NAME) $(OBJS_BONUS)
+$(NAME): $(LIBFT_ARCH) $(BUILD_PATH) $(OBJS)
+	make -C $(LIBFT_PATH) bonus
+	cp $(LIBFT_PATH)/$(LIBFT_NAME) .
+	mv $(LIBFT_NAME) $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -72,7 +75,11 @@ bonus: $(LIBFT_ARCH) $(BUILD_PATH) $(OBJS_BONUS)
 	$(AR) $(NAME) $(OBJS_BONUS)
 
 test: all
-	@$(CC) main.c $(SRCS_BONUS) $(LIBFT_ARCH) -g
+	@$(CC) tests/test.c $(SRCS) $(LIBFT_ARCH) -g
+	@./a.out
+
+test_bonus: all
+	@$(CC) tests/test_bonus.c $(SRCS_BONUS) $(LIBFT_ARCH) -g
 	@./a.out
 
 .PHONY: all clean fclean re
