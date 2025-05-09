@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_parse_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:37:12 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/08 18:31:55 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:54:02 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf_bonus.h"
 
-static	void	initialize_flags(t_flags flags)
+t_flags	initialize_flags(void)
 {
+	t_flags	flags;
+
 	flags.minus = 0;
 	flags.zero_pad = 0;
 	flags.hash = 0;
@@ -23,11 +25,12 @@ static	void	initialize_flags(t_flags flags)
 	flags.precision.key = 0;
 	flags.precision.value = 0;
 	flags.specifier = 0;
+	return (flags);
 }
 
-static void ft_parse_flags(t_flags *flags, const char **format)
+static void	ft_parse_flags(t_flags *flags, const char **format)
 {
-	while (ft_strchr("#0+- ", format))
+	while (ft_strchr("#0+- ", **format))
 	{
 		if (**format == '#')
 		{
@@ -56,13 +59,13 @@ static void ft_parse_flags(t_flags *flags, const char **format)
 static void	ft_parse_width(t_flags *flags, const char **format)
 {
 	flags->width = ft_atoi(*format);
-	while (ft_isdigit(*format))
+	while (ft_isdigit(**format))
 	{
 		(*format)++;
 	}
 }
 
-static void ft_parse_precision(t_flags *flags, const char **format)
+static void	ft_parse_precision(t_flags *flags, const char **format)
 {
 	if (**format == '.')
 	{
@@ -73,14 +76,13 @@ static void ft_parse_precision(t_flags *flags, const char **format)
 			(*format)++;
 		}
 	}
-
 }
 
-t_flags	ft_parse(const char *format)
+t_flags	ft_parse_bonus(const char *format)
 {
 	t_flags	flags;
 
-	initialize_flags(flags);
+	flags = initialize_flags();
 	ft_parse_flags(&flags, &format);
 	ft_parse_width(&flags, &format);
 	ft_parse_precision(&flags, &format);

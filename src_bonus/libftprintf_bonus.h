@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:33:13 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/08 18:38:39 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:35:01 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <stdarg.h>
 # include <stdint.h>
 
+# include <stdio.h>
+
 typedef struct s_key_value
 {
 	int		key;
-	char	*value;
+	int		value;
 }	t_key_value;
 
 typedef struct s_flags
@@ -35,7 +37,16 @@ typedef struct s_flags
 	int			specifier;
 }	t_flags;
 
-int		ft_printf_bonus(const char *format, ...);
-t_flags	ft_parse(const char *format);
+// src_bonus/ft_printf_bonus.c
+int			ft_printf_bonus(const char *format, ...);
+
+// src_bonus/ft_parse_bonus.c
+t_flags		ft_parse_bonus(const char *format);
+
+// src_bonus/ft_print_c_bonus.c
+int			ft_print_c_bonus(t_flags flags, int arg);
+
+// src_bonus/ft_printf_utils_bonus.c
+int			ft_putwidth(int width, char c);
 
 #endif

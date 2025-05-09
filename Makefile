@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 13:01:08 by lseabra-          #+#    #+#              #
-#    Updated: 2025/05/08 18:30:38 by lseabra-         ###   ########.fr        #
+#    Updated: 2025/05/09 16:04:16 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ BUILD_BONUS_PATH = .build_bonus
 LIBFT_PATH = libft/
 LIBFT_ARCH = $(LIBFT_PATH)$(LIBFT_NAME)
 
-SRCS_BONUS = $(addprefix $(SRC_BONUS_PATH)/, ft_printf_bonus.c)
+SRCS_BONUS = $(addprefix $(SRC_BONUS_PATH)/, ft_printf_bonus.c ft_printf_utils_bonus.c \
+			ft_parse_bonus.c ft_print_c_bonus.c)
 OBJS_BONUS = $(addprefix $(BUILD_BONUS_PATH)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 
@@ -60,8 +61,10 @@ fclean: clean
 
 re: fclean all
 
+bonus: all
+
 test: all
-	@$(CC) main.c $(OBJS_BONUS) $(LIBFT_ARCH) 
+	@$(CC) main.c $(SRCS_BONUS) $(LIBFT_ARCH) -g
 	@./a.out
 
 .PHONY: all clean fclean re
