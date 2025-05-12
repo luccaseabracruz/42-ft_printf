@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 18:30:32 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:33:52 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/12 12:58:50 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/12 16:02:23 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-# include <stdint.h>
-# include <stdio.h>
+int ft_print_s(va_list args)
+{
+    char    *arg;
 
-int	ft_printf(const char *format, ...);
-int	ft_print_c(va_list args);
-int ft_print_s(va_list args);
-
-int ft_putchar_count(int c);
-int ft_putstr_count(const char *s);
-
-#endif
+    arg = va_arg(args, char *);
+    if (!arg)
+    {
+        return (ft_putstr_count("(null)"));
+    }
+    return (ft_putstr_count(arg));
+}

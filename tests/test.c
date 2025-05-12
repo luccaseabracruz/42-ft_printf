@@ -6,17 +6,18 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:23:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:57:57 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/12 16:07:02 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../src/ft_printf.h"
 #include <stdio.h>
 
 static void	test_nospecifiers(void);
 static void	test_c(void);
+static void test_s(void);
 
-#define TEST_PRINTF_BONUS(format, ...) { \
+#define TEST_PRINTF(format, ...) { \
     int original_ret = printf(format, ##__VA_ARGS__); \
     int ft_ret = ft_printf(format, ##__VA_ARGS__); \
     if (original_ret == ft_ret) { \
@@ -28,49 +29,49 @@ static void	test_c(void);
 
 int	main(void)
 {
-	test_nospecifiers();
-	test_c();
+	// test_nospecifiers();
+	// test_c();
+	test_s();
 	return (0);
 }
 
 // NO SPECIFIERS TEST
 static void	test_nospecifiers(void)
 {
-	int	original_ret;
-	int	ft_ret;
-	
 	printf("\n\n1. NO SPECIFIERS TEST\n");
 	
 	printf("TEST 1.1:\n");
-	TEST_PRINTF_BONUS("Hello world\n");
+	TEST_PRINTF("Hello world\n");
 
 	printf("TEST 1.2:\n");
-	TEST_PRINTF_BONUS("Hello%% world\n");
+	TEST_PRINTF("Hello%% world\n");
 
 	printf("TEST 1.3:\n");
-	TEST_PRINTF_BONUS("\n");
+	TEST_PRINTF("\n");
 
 	printf("TEST 1.4:\n");
-	TEST_PRINTF_BONUS("");
+	TEST_PRINTF("");
 
 	printf("TEST 1.5:\n");
-	TEST_PRINTF_BONUS("Hello world\n", 'Z');
+	TEST_PRINTF("Hello world\n", 'Z');
 }
 
 //CHAR TESTS (c)
 static void	test_c(void)
 {
-	int	original_ret;
-	int	ft_ret;
-	
-	printf("\n2 CHAR TESTS:\n");
+	printf("\n2. CHAR TESTS:\n");
 
 	printf("TEST 2.1:\n");
-	TEST_PRINTF_BONUS("|%c|\n", 'Z');
+	TEST_PRINTF("|%c|\n", 'Z');
+}
 
-	printf("TEST 2.2:\n");
-	TEST_PRINTF_BONUS("|%c|\n", '\0');
+static void test_s(void)
+{
+	printf("\n3. STRING TESTS\n");
 	
-	printf("TEST 2.3:\n");
-	TEST_PRINTF_BONUS("|%c|\n", '\n');
+	printf("TEST 3.1:");
+	TEST_PRINTF("\n");
+
+	printf("TEST 3.2:\n");
+	TEST_PRINTF("%s\n", NULL);
 }

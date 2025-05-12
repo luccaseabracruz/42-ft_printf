@@ -6,11 +6,11 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:37:12 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 13:54:02 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:36:57 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf_bonus.h"
 
 t_flags	initialize_flags(void)
 {

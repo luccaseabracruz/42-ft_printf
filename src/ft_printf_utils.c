@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 18:30:32 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:33:52 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/12 15:52:03 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/12 16:04:18 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-# include <stdint.h>
-# include <stdio.h>
+int ft_putchar_count(int c)
+{
+    if (c)
+    {
+        return (write(1, &c, 1));
+    }
+    return (0);
+}
 
-int	ft_printf(const char *format, ...);
-int	ft_print_c(va_list args);
-int ft_print_s(va_list args);
+int ft_putstr_count(char *s)
+{
+    int counter;
 
-int ft_putchar_count(int c);
-int ft_putstr_count(const char *s);
-
-#endif
+    counter = 0;
+    while (*s)
+    {
+        counter += ft_putchar_count(*s);
+        s++;
+    }
+    return (counter);
+}
