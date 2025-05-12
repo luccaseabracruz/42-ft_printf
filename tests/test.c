@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:23:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/12 16:07:02 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 00:54:21 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static void	test_nospecifiers(void);
 static void	test_c(void);
 static void test_s(void);
+static void test_p(void);
 
 #define TEST_PRINTF(format, ...) { \
     int original_ret = printf(format, ##__VA_ARGS__); \
@@ -31,7 +32,8 @@ int	main(void)
 {
 	// test_nospecifiers();
 	// test_c();
-	test_s();
+	// test_s();
+	test_p();
 	return (0);
 }
 
@@ -74,4 +76,16 @@ static void test_s(void)
 
 	printf("TEST 3.2:\n");
 	TEST_PRINTF("%s\n", NULL);
+}
+
+static void test_p(void)
+{
+	printf("\n4. POINTER TESTS\n");
+	
+	int	x = 0;
+	printf("TEST 4.1:");
+	TEST_PRINTF("%p\n", &x);
+//
+	// printf("TEST 4.2:\n");
+	// TEST_PRINTF("%s\n", NULL);
 }
