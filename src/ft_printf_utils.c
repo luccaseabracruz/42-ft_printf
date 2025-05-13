@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:52:03 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 00:36:09 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 01:02:08 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ size_t  ft_nbrlen_base(uintptr_t ptr, char *base)
     size_t  len;
 
     base_len = ft_strlen(base);
-    len = 0;
+    len = 1;
     while (ptr >= base_len)
     {
         len++;
         ptr /= base_len;
     }
-    return (++len);
+    return (len);
 }
