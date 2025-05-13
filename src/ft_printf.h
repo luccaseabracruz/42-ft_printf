@@ -18,14 +18,13 @@
 # include <stdint.h>
 # include <stdio.h>
 
-int	    ft_printf(const char *format, ...);
-int	    ft_print_c(va_list args);
-int     ft_print_s(va_list args);
-int     ft_print_p(va_list args);
+int		ft_printf(const char *format, ...);
+int		ft_print_c(va_list args);
+int		ft_print_s(va_list args);
+int		ft_print_p(va_list args);
 
-int     ft_putchar_count(int c);
-int     ft_putstr_count(const char *s);
-size_t  ft_nbrlen_base(uintptr_t ptr, char *base);
-// size_t  ft_putnbrbase_count(uintptr_t nbr, char *base)
+int		ft_putchar_count(int c);
+int		ft_putstr_count(const char *s);
+size_t	ft_nbrlen_base(uintptr_t ptr, char *base);
 
 #endif
