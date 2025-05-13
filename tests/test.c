@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:23:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 12:35:11 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:59:28 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	test_c(void);
 static void test_s(void);
 static void test_p(void);
 static void test_d(void);
+static void	test_u(void);
 
 #define TEST_PRINTF(format, ...) { \
     int original_ret = printf(format, ##__VA_ARGS__); \
@@ -35,7 +36,8 @@ int	main(void)
 	// test_c();
 	// test_s();
 	// test_p();
-	test_d();
+	// test_d();
+	test_u();
 	return (0);
 }
 
@@ -69,6 +71,7 @@ static void	test_c(void)
 	TEST_PRINTF("|%c|\n", 'Z');
 }
 
+//STRING TESTS (s)
 static void test_s(void)
 {
 	printf("\n3. STRING TESTS\n");
@@ -80,6 +83,7 @@ static void test_s(void)
 	TEST_PRINTF("%s\n", NULL);
 }
 
+//POINTER TESTS (p)
 static void test_p(void)
 {
 	printf("\n4. POINTER TESTS\n");
@@ -89,10 +93,10 @@ static void test_p(void)
 	TEST_PRINTF("%p\n", &x);
 }
 
+//DECIMAL TESTS (d)
 static void test_d(void)
 {
 	printf("\n5. INTEGER TESTS\n");
-	ft_printf("|%d|", -101);
 	
 	printf("TEST 5.1:\n");
 	TEST_PRINTF("%d\n", 42);
@@ -117,4 +121,41 @@ static void test_d(void)
 
 	printf("TEST 5.7:\n");
 	TEST_PRINTF("%i\n", NULL);
+}
+
+//UNSIGNED DECIMAL TESTS (u)
+static void	test_u(void)
+{
+	printf("\n6. UNSIGNED INTEGER TESTS\n");
+	ft_printf("%u\n", INT_MIN);
+	
+	printf("TEST 6.1:\n");
+	TEST_PRINTF("%u\n", -1);
+	
+	printf("TEST 6.2:\n");
+	TEST_PRINTF("%u\n", -101);
+	
+	printf("TEST 6.3:\n");
+	TEST_PRINTF("%u\n", INT_MIN);
+	
+	printf("TEST 6.4:\n");
+	TEST_PRINTF("%u\n", INT_MIN);
+	
+	printf("TEST 6.5:\n");
+	TEST_PRINTF("%u\n", LONG_MAX);
+	
+	printf("TEST 6.6:\n");
+	TEST_PRINTF("%u\n", UINT_MAX);
+	
+	printf("TEST 6.7:\n");
+	TEST_PRINTF("%u\n", ULONG_MAX);
+	
+	printf("TEST 6.8:\n");
+	TEST_PRINTF("%u\n", 9223372036854775807LL);
+	
+	printf("TEST 6.9:\n");
+	TEST_PRINTF("%u\n", ULONG_MAX);
+	
+	printf("TEST 6.10:\n");
+	TEST_PRINTF("%u\n", 0);
 }

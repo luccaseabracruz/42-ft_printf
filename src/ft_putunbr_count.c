@@ -1,46 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_putunbr_count.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 15:52:03 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 14:17:05 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/13 14:17:51 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/13 15:04:12 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_count(int c)
+size_t	ft_uintlen(unsigned int nbr)
 {
-	return (write(1, &c, 1));
-}
-
-int	ft_putstr_count(const char *s)
-{
-	int	counter;
-
-	counter = 0;
-	while (*s)
-	{
-		counter += ft_putchar_count(*s);
-		s++;
-	}
-	return (counter);
-}
-
-size_t	ft_unbrlen_base(uintptr_t ptr, char *base)
-{
-	size_t	base_len;
 	size_t	len;
 
-	base_len = ft_strlen(base);
 	len = 1;
-	while (ptr >= base_len)
+	while (nbr >= 10)
 	{
 		len++;
-		ptr /= base_len;
+		nbr /= 10;
 	}
 	return (len);
+}
+
+int	ft_putunbr_count(unsigned int nbr)
+{
+	char	*buffer;
+	int		counter;
+	size_t	len;
+
+	len = ft_uintlen(nbr);
+	buffer = ft_calloc(len + 1, sizeof(char));
+	while (len > 0)
+	{
+		buffer[len - 1] = (nbr % 10) + 48;
+		nbr /= 10;
+		len--;
+	}
+	counter = ft_putstr_count(buffer);
+	free(buffer);
+	return (counter);
 }

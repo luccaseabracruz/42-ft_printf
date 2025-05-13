@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 13:01:08 by lseabra-          #+#    #+#              #
-#    Updated: 2025/05/13 12:19:38 by lseabra-         ###   ########.fr        #
+#    Updated: 2025/05/13 14:27:18 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ LIBFT_PATH = libft/
 LIBFT_ARCH = $(LIBFT_PATH)$(LIBFT_NAME)
 
 SRCS = $(addprefix $(SRC_PATH)/, ft_printf.c ft_print_c.c ft_print_s.c \
-		ft_print_p.c ft_print_d.c ft_printf_utils.c)
+		ft_print_p.c ft_print_d.c ft_print_u.c ft_putnbr_count.c \
+		ft_putunbr_count.c ft_printf_utils.c)
 OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
 
 SRC_BONUS_PATH = src_bonus

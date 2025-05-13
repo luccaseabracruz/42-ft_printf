@@ -1,46 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 15:52:03 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 14:17:05 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/13 13:51:02 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/13 14:39:01 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_count(int c)
+int	ft_print_u(va_list args)
 {
-	return (write(1, &c, 1));
-}
+	unsigned int	arg;
 
-int	ft_putstr_count(const char *s)
-{
-	int	counter;
-
-	counter = 0;
-	while (*s)
-	{
-		counter += ft_putchar_count(*s);
-		s++;
-	}
-	return (counter);
-}
-
-size_t	ft_unbrlen_base(uintptr_t ptr, char *base)
-{
-	size_t	base_len;
-	size_t	len;
-
-	base_len = ft_strlen(base);
-	len = 1;
-	while (ptr >= base_len)
-	{
-		len++;
-		ptr /= base_len;
-	}
-	return (len);
+	arg = va_arg(args, unsigned int);
+	return (ft_putunbr_count(arg));
 }
