@@ -22,9 +22,12 @@ int		ft_printf(const char *format, ...);
 int		ft_print_c(va_list args);
 int		ft_print_s(va_list args);
 int		ft_print_p(va_list args);
+int		ft_print_d(va_list args);
 
+//ft_printf_utils.c
 int		ft_putchar_count(int c);
 int		ft_putstr_count(const char *s);
-size_t	ft_nbrlen_base(uintptr_t ptr, char *base);
+size_t	ft_unbrlen_base(uintptr_t ptr, char *base);
+int		ft_putnbr_count(int nbr);
 
 #endif

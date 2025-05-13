@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:23:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 00:54:21 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 12:35:11 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	test_nospecifiers(void);
 static void	test_c(void);
 static void test_s(void);
 static void test_p(void);
+static void test_d(void);
 
 #define TEST_PRINTF(format, ...) { \
     int original_ret = printf(format, ##__VA_ARGS__); \
@@ -33,7 +34,8 @@ int	main(void)
 	// test_nospecifiers();
 	// test_c();
 	// test_s();
-	test_p();
+	// test_p();
+	test_d();
 	return (0);
 }
 
@@ -71,7 +73,7 @@ static void test_s(void)
 {
 	printf("\n3. STRING TESTS\n");
 	
-	printf("TEST 3.1:");
+	printf("TEST 3.1:\n");
 	TEST_PRINTF("\n");
 
 	printf("TEST 3.2:\n");
@@ -85,7 +87,34 @@ static void test_p(void)
 	int	x = 0;
 	printf("TEST 4.1:");
 	TEST_PRINTF("%p\n", &x);
-//
-	// printf("TEST 4.2:\n");
-	// TEST_PRINTF("%s\n", NULL);
+}
+
+static void test_d(void)
+{
+	printf("\n5. INTEGER TESTS\n");
+	ft_printf("|%d|", -101);
+	
+	printf("TEST 5.1:\n");
+	TEST_PRINTF("%d\n", 42);
+	
+	printf("TEST 5.2:\n");
+	TEST_PRINTF("%d\n", -101);
+	
+	printf("TEST 5.2:\n");
+	TEST_PRINTF("%d\n");
+	
+	printf("TEST 5.3:\n");
+	TEST_PRINTF("%i\n", 42);
+	
+	printf("TEST 5.4:\n");
+	TEST_PRINTF("%i\n", -101);
+	
+	printf("TEST 5.5:\n");
+	TEST_PRINTF("%i\n");
+
+	printf("TEST 5.6:\n");
+	TEST_PRINTF("%d\n", NULL);
+
+	printf("TEST 5.7:\n");
+	TEST_PRINTF("%i\n", NULL);
 }

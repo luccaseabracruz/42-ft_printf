@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:21:25 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 10:26:33 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 10:45:59 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_print_p(va_list args)
 	if (!arg)
 		return (ft_putstr_count("(nil)"));
 	base_len = ft_strlen("0123456789abcdef");
-	len = ft_nbrlen_base(arg, "0123456789abcdef") + 2;
+	len = ft_unbrlen_base(arg, "0123456789abcdef") + 2;
 	buffer = ft_calloc(len + 1, sizeof(char));
 	if (!buffer)
 		return (0);
