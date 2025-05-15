@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 13:29:24 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/04/18 15:16:36 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:54:19 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
-	if (nmemb == 0 || size == 0)
+	if (size != 0 && nmemb > SIZE_MAX / size)
 	{
-		return (malloc(0));
+		return (NULL);
 	}
 	ptr = malloc(nmemb * size);
 	if (!ptr)
