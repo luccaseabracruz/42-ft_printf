@@ -6,31 +6,13 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:15:58 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 14:29:57 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:12:22 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_intlen(int nbr)
-{
-	size_t	counter;
-
-	if (nbr == INT_MIN)
-		return (ft_strlen("-2147483648"));
-	counter = 1;
-	if (nbr < 0)
-	{
-		counter++;
-		nbr = -nbr;
-	}
-	while (nbr >= 10)
-	{
-		counter++;
-		nbr /= 10;
-	}
-	return (counter);
-}
+static size_t	ft_intlen(int nbr);
 
 int	ft_putnbr_count(int nbr)
 {
@@ -57,5 +39,25 @@ int	ft_putnbr_count(int nbr)
 	}
 	counter = ft_putstr_count(buffer);
 	free(buffer);
+	return (counter);
+}
+
+static size_t	ft_intlen(int nbr)
+{
+	size_t	counter;
+
+	if (nbr == INT_MIN)
+		return (ft_strlen("-2147483648"));
+	counter = 1;
+	if (nbr < 0)
+	{
+		counter++;
+		nbr = -nbr;
+	}
+	while (nbr >= 10)
+	{
+		counter++;
+		nbr /= 10;
+	}
 	return (counter);
 }
