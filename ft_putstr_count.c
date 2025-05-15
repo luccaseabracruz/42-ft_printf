@@ -6,15 +6,15 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:44:42 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/15 14:21:34 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:08:25 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putstr_count(const char *s)
+int	ft_putstr_count(const char *s)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	while (*s)
