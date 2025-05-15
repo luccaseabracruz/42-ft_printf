@@ -24,9 +24,11 @@ int		ft_print_s(va_list args);
 int		ft_print_p(va_list args);
 int		ft_print_d(va_list args);
 int		ft_print_u(va_list args);
+int		ft_print_hex(va_list args, char *base);
 
 int		ft_putnbr_count(int nbr);
 int		ft_putunbr_count(unsigned int nbr);
+size_t	ft_uintlen_base(unsigned int nbr, char *base);
 
 //ft_printf_utils.c
 int		ft_putchar_count(int c);

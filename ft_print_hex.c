@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils_bonus.c                            :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 13:15:06 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/12 15:36:57 by lseabra-         ###   ########.fr       */
+/*   Created: 2025/05/13 15:53:23 by lseabra-          #+#    #+#             */
+/*   Updated: 2025/05/13 17:33:01 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-int	ft_putwidth(int width, char c)
+int	ft_print_hex(va_list args, char *base)
 {
-	int	counter;
+	int				counter;
+	char			*buffer;
+	size_t			len;
+	unsigned int	arg;
 
-	counter = 0;
-	while (--width > 0)
+	arg = va_arg(args, unsigned int);
+	len = ft_uintlen_base(arg, base);
+	buffer = ft_calloc(len + 1, sizeof(char));
+	if (!buffer)
+		return (0);
+	while (len > 0)
 	{
-		ft_putchar_fd(c, 1);
-		counter++;
+		buffer[--len] = base[arg % 16];
+		arg /= 16;
 	}
+	counter = ft_putstr_count(buffer);
+	free(buffer);
 	return (counter);
 }

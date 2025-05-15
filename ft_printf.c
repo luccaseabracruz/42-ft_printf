@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:01:10 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 14:53:35 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:33:58 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ static int	ft_handle_print(va_list args, const char type)
 		counter += ft_print_d(args);
 	else if (type == 'u')
 		counter += ft_print_u(args);
+	else if (type == 'x')
+		counter += ft_print_hex(args, "0123456789abcdef");
+	else if (type == 'X')
+		counter += ft_print_hex(args, "0123456789ABCDEF");
 	return (counter);
 }
