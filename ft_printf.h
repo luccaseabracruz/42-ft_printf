@@ -18,7 +18,30 @@
 # include <stdint.h>
 # include <stdio.h>
 
+typedef struct s_key_value
+{
+	int		key;
+	int		value;
+}	t_key_value;
+
+typedef struct s_flags
+{
+	int			minus;
+	int			zero_pad;
+	int			hash;
+	int			space;
+	int			plus;
+	int			width;
+	t_key_value	precision;
+	int			specifier;
+}	t_flags;
+
 int		ft_printf(const char *format, ...);
+
+t_flags	ft_parse_bonus(const char *format);
+int		ft_print_c_bonus(t_flags flags, int arg);
+int		ft_putwidth(int width, char c);
+
 int		ft_print_c(va_list args);
 int		ft_print_s(va_list args);
 int		ft_print_p(va_list args);
@@ -31,10 +54,6 @@ int		ft_putstr_count(const char *s);
 int		ft_putnbr_count(int nbr);
 int		ft_putunbr_count(unsigned int nbr);
 size_t	ft_uintlen_base(unsigned int nbr, char *base);
-
-//ft_printf_utils.c
-int		ft_putchar_count(int c);
-int		ft_putstr_count(const char *s);
 size_t	ft_uintlen_base(unsigned int nbr, char *base);
 
 #endif
