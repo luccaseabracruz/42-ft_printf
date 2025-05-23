@@ -6,11 +6,15 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:21:25 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/15 12:55:03 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 22:41:02 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 static size_t	ft_ptrlen_base(uintptr_t nbr);
 

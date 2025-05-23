@@ -13,10 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
-# include <stdint.h>
-# include <stdio.h>
+# include <stddef.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_print_c(va_list args);
@@ -30,11 +28,6 @@ int		ft_putchar_count(int c);
 int		ft_putstr_count(const char *s);
 int		ft_putnbr_count(int nbr);
 int		ft_putunbr_count(unsigned int nbr);
-size_t	ft_uintlen_base(unsigned int nbr, char *base);
-
-//ft_printf_utils.c
-int		ft_putchar_count(int c);
-int		ft_putstr_count(const char *s);
 size_t	ft_uintlen_base(unsigned int nbr, char *base);
 
 #endif

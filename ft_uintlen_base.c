@@ -6,11 +6,13 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:45:45 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/15 13:43:43 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 22:39:10 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
+#include <stddef.h>
 
 size_t	ft_uintlen_base(unsigned int nbr, char *base)
 {

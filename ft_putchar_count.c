@@ -6,11 +6,11 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:43:41 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/15 13:53:41 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:17:55 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
 int	ft_putchar_count(int c)
 {

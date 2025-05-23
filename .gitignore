@@ -1,5 +1,6 @@
 #Visual Studio 
 .vscode
+main.c
 
 #Build directory and Object Files
 build*/

@@ -6,11 +6,13 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:53:23 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/13 17:33:01 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:27:49 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
+#include <stdlib.h>
 
 int	ft_print_hex(va_list args, char *base)
 {

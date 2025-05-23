@@ -6,11 +6,15 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:15:58 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/15 14:12:22 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 22:37:49 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
+#include <stddef.h>
+#include <limits.h>
+#include <stdlib.h>
 
 static size_t	ft_intlen(int nbr);
 

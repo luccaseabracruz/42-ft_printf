@@ -6,11 +6,14 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:01:10 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/23 20:40:01 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:30:42 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 static int	ft_handle_print(va_list args, const char type);
 
