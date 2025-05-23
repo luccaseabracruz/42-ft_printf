@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:01:10 by lseabra-          #+#    #+#             */
-/*   Updated: 2025/05/23 15:08:22 by lseabra-         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:40:01 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,4 @@ static int	ft_handle_print(va_list args, const char type)
 	else if (type == 'X')
 		counter += ft_print_hex(args, "0123456789ABCDEF");
 	return (counter);
-}
-
-int	main(void)
-{
-	ft_printf("%s\n%d\n%u\n%x\n%X\n", "Test:", 0, 1999, 42, 42);
 }
