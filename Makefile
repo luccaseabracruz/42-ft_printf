@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 13:01:08 by lseabra-          #+#    #+#              #
-#    Updated: 2025/05/15 12:58:31 by lseabra-         ###   ########.fr        #
+#    Updated: 2025/05/26 14:12:53 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
 #                                    RULES                                     #
 #==============================================================================#
 
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
 $(NAME): $(LIBFT_ARCH) $(BUILD_PATH) $(OBJS)
@@ -67,5 +69,3 @@ fclean: clean
 	$(MAKE) -C $(LIBFT_PATH) fclean
 
 re: fclean all
-
-.PHONY: all clean fclean re
