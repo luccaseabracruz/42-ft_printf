@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 13:01:08 by lseabra-          #+#    #+#              #
-#    Updated: 2025/05/26 14:12:53 by lseabra-         ###   ########.fr        #
+#    Updated: 2025/05/28 19:16:28 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,6 @@ $(NAME): $(LIBFT_ARCH) $(BUILD_PATH) $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(BUILD_PATH)/%.o: $(SRC_BONUS_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH):
